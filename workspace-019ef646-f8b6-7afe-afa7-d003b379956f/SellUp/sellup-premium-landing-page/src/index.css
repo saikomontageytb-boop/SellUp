@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #08080C;
+  --color-brand-purple: #7C3AED;
+  --color-brand-indigo: #6366F1;
+  
+  --font-inter: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-black text-white antialiased selection:bg-brand-purple/30;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 0.9rem;
+    transition: border-color 0.15s;
+  }
+  .input:focus {
+    outline: none;
+    border-color: var(--color-brand-purple);
+  }
+  .input::placeholder { color: rgba(255, 255, 255, 0.3); }
+  .input:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #fff 50%, rgba(255, 255, 255, 0.6) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .purple-glow {
+    position: absolute;
+    z-index: -10;
+    filter: blur(120px);
+    border-radius: 9999px;
+    opacity: 0.2;
+    background-color: var(--color-brand-purple);
+  }
+  
+  .indigo-glow {
+    position: absolute;
+    z-index: -10;
+    filter: blur(120px);
+    border-radius: 9999px;
+    opacity: 0.2;
+    background-color: var(--color-brand-indigo);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #08080C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1a24;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #252533;
+}
